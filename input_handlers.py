@@ -17,6 +17,8 @@ def handle_keys(key):
     elif key.vk == libtcod.KEY_ESCAPE:
         # Exit game
         return {'exit': True}
+    # elif key.vk == libtcod.KEY_ENTER:
+    #     return {'next_room': True}
     
     # No key was pressed
     return {}

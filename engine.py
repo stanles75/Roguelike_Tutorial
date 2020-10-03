@@ -3,6 +3,7 @@ from input_handlers import handle_keys
 from entity import Entity
 from render_functions import clear_all, render_all
 from map_objects.game_map import GameMap
+# from map_objects.game_map2 import GameMap2
 
 def main():
     screen_width = 80
@@ -30,8 +31,10 @@ def main():
     con = libtcod.console_new(screen_width, screen_height)
 
     game_map = GameMap(map_width, map_height)
+    # game_map = GameMap2(map_width, map_height)
+    
     game_map.make_map(max_rooms, room_min_size, room_max_size, map_width, map_height, player)
-
+    # game_map.make_map_next_room(max_rooms, room_min_size, room_max_size, map_width, map_height, player)
 
     key = libtcod.Key()
     mouse = libtcod.Mouse()
@@ -49,6 +52,7 @@ def main():
 
         move = action.get('move')
         exit = action.get('exit')
+        # next_room = action.get('next_room')
         fullscreen = action.get('fullscreen')
 
         if move:
@@ -61,6 +65,10 @@ def main():
         
         if fullscreen:
             libtcod.console_set_fullscreen(not libtcod.console_is_fullscreen())
+        
+        # if next_room and game_map.num_rooms < max_rooms:
+        #     game_map.make_map_next_room(max_rooms, room_min_size, room_max_size, map_width, map_height, player)
+            
 
 if __name__ == '__main__':
     main()

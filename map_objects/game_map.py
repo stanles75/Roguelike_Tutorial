@@ -66,6 +66,7 @@ class GameMap:
                 # finally, append the new room to the list
                 rooms.append(new_room)
                 num_rooms += 1
+                print(num_rooms)
 
     def create_room(self, room):
         # Go through the tiles in the rectangle and make them passable
