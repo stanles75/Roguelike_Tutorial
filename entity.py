@@ -36,6 +36,9 @@ class Entity:
         self.x += dx
         self.y += dy
 
+    def distance(self, x, y):
+        return math.sqrt((x - self.x) ** 2 + (y - self.y) ** 2)
+
     def distance_to(self, other):
         dx = other.x - self.x
         dy = other.y - self.y
